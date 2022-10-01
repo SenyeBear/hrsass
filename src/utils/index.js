@@ -115,3 +115,24 @@ export function param2Obj(url) {
   })
   return obj
 }
+
+/**
+ * 把列表型数据转化成树形数据
+ */
+export function tranListToTreeData(list, rootValue) {
+  const arr = []
+  list.forEach(obj => {
+    // 设置第一次rootValue为''
+    if (obj.pid === rootValue) {
+      // 返回子节点的数组
+      const children = tranListToTreeData(list, obj.id)
+      if (children.length > 0) {
+        // 为根节点对象添加一个children属性存放子节点数组
+        obj.children = children
+      }
+      // 把根节点对象存入数组
+      arr.push(obj)
+    }
+  })
+  return arr
+}

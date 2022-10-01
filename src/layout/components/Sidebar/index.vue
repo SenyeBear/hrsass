@@ -31,6 +31,7 @@ export default {
       'sidebar'
     ]),
     routes() {
+      //  可以拿到初始化时配置的路由规则
       return this.$router.options.routes
     },
     activeMenu() {
