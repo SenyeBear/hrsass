@@ -63,6 +63,16 @@ export const constantRoutes = [
       meta: { title: '首页', icon: 'dashboard' }
     }]
   },
+  // 导入excel组件属于公共组件 所以也要放在静态路由
+  {
+    path: '/import',
+    component: Layout,
+    hidden: true, // 隐藏在左侧菜单中
+    children: [{
+      path: '',
+      component: () => import('@/views/import')
+    }]
+  },
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }

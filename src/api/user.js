@@ -22,7 +22,8 @@ export function getUserInfo() {
 }
 
 /**
- * 根据用户id获取用户详情
+ * 根据id获取用户的基本信息
+ *
  */
 export function getUserDetailById(id) {
   return request({
