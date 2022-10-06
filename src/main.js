@@ -16,9 +16,12 @@ import * as directives from '@/directives'
 import * as filters from '@/filters'
 import '@/icons' // icon
 import '@/permission' // permission control
+import checkPermission from './mixin/checkPermission'
 import Print from 'vue-print-nb'
 Vue.use(Print)
 
+// 全局混入mixin检查对象
+Vue.mixin(checkPermission)
 // console.log(directives)
 Object.keys(directives).forEach(key => {
   Vue.directive(key, directives[key])

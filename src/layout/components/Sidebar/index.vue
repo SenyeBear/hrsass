@@ -28,12 +28,14 @@ export default {
   components: { SidebarItem, Logo },
   computed: {
     ...mapGetters([
-      'sidebar'
+      'sidebar',
+      // 配置好权限路由后，将routes设置为 实时的最新路由
+      'routes'
     ]),
-    routes() {
-      //  可以拿到初始化时配置的路由规则
-      return this.$router.options.routes
-    },
+    // routes() {
+    //  可以拿到初始化时配置的路由规则
+    // return this.$router.options.routes
+    // },
     activeMenu() {
       const route = this.$route
       const { meta, path } = route

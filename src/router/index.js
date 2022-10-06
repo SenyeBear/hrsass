@@ -39,6 +39,7 @@ import Layout from '@/layout'
  * a base page that does not have permission requirements
  * all roles can be accessed
  */
+// 所有静态路由
 export const constantRoutes = [
   {
     path: '/login',
@@ -80,7 +81,8 @@ export const constantRoutes = [
 
 // 定义动态路由变量
 // 这里导出变量 为后期做权限铺垫
-export const asyncRouter = [
+// 所有动态路由
+export const asyncRoutes = [
   approvalsRouter,
   departmentsRouter,
   employeesRouter,
@@ -96,7 +98,9 @@ const createRouter = () => new Router({
   // routes路由规则
   // routes: constantRoutes
   // 实现静态路由和动态路由临时合并
-  routes: [...constantRoutes, ...asyncRouter]
+  // 接触静态路由和动态路由的合并
+  // routes: [...constantRoutes, ...asyncRoutes]
+  routes: [...constantRoutes]
 })
 
 const router = createRouter() // 实例化一个路由 相当于 new Router()

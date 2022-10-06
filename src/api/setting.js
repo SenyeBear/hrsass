@@ -51,7 +51,7 @@ export function addRole(data) {
 }
 
 /**
- *  新增角色
+ *  删除角色
  */
 export function deleteRole(id) {
   return request({
@@ -59,3 +59,15 @@ export function deleteRole(id) {
     url: `/sys/role/${id}`
   })
 }
+
+/**
+ *  给角色分配权限
+ */
+export function assignPerm(data) {
+  return request({
+    method: 'PUT',
+    url: '/sys/role/assignPrem',
+    data
+  })
+}
+

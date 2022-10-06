@@ -2,8 +2,8 @@
 import Layout from '@/layout'
 
 export default {
-  path: '/setting',
-  name: 'setting', // 给模块的一级路由name属性 用于后续的权限处理
+  path: '/settings',
+  name: 'settings', // 给模块的一级路由name属性 用于后续的权限处理
   component: Layout,
   children: [{
     path: '',

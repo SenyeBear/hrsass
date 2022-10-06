@@ -1,6 +1,6 @@
 import { getToken, setToken, removeToken, setTimeStamp } from '@/utils/auth'
 import { login, getUserInfo, getUserDetailById } from '@/api/user'
-
+import { resetRouter } from '@/router' // 引入重置路由的方法
 // 存储状态
 const state = {
   // 初始化时从缓存读取状态赋值
@@ -67,6 +67,14 @@ const actions = {
     context.commit('removeToken')
     // 删除用户资料
     context.commit('removeUserInfo')
+    // 重置路由
+    resetRouter()
+    // 清除vuex中permission模块下state的数据
+    // 这里是在user子模块 要调用permission子模块的action
+    // 子模块调用子模块的action  默认情况下 子模块的context是子模块的
+    // 子模块调用子模块的action 可以 将 commit的第三个参数 设置成  { root: true } 就表示当前的context不是子模块了 而是父模块
+    // 加上子模块路径 因为上了命名空间锁
+    context.commit('permission/setRoutes', [], { root: true })
   }
 }
 
